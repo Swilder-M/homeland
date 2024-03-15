@@ -1,5 +1,5 @@
 # NAME:     homeland/homeland
-FROM codming/homeland-base-arm:3.3-alpine
+FROM codming/homeland-base-arm:3.4-alpine
 
 ENV RAILS_ENV "production"
 ENV RUBY_YJIT_ENABLE "true"
@@ -27,4 +27,3 @@ ADD ./config/nginx/ /etc/nginx
 RUN bundle exec rails assets:precompile RAILS_PRECOMPILE=1 RAILS_ENV=production SECRET_KEY_BASE=fake
 RUN rm -Rf /home/app/homeland/app/javascript && \
   rm -Rf /home/app/homeland/test
-
