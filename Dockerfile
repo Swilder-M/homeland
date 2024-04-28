@@ -1,5 +1,5 @@
 # NAME:     homeland/homeland
-FROM codming/homeland-base-arm:3.4-alpine
+FROM codming/homeland-base-arm:3.5-alpine
 
 ENV RAILS_ENV "production"
 ENV RUBY_YJIT_ENABLE "true"
