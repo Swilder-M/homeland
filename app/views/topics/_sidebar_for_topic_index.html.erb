@@ -14,8 +14,6 @@
 </div>
 <% end %>
 
-<%= render "topics/sidebar_box_tips" %>
-
 <%= raw Setting.topic_index_sidebar_html %>
 
 <% cache(["sidebar_active_users",Time.now.strftime("%Y-%m-%d %H")]) do %>
