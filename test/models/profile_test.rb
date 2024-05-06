@@ -34,8 +34,4 @@ class ProfileTest < ActiveSupport::TestCase
     assert_equal "Dribbble", Profile.contact_field_label(:dribbble)
   end
 
-  test "#reward_field_label" do
-    assert_equal "Wechat", Profile.reward_field_label(:wechat)
-    assert_equal "Alipay", Profile.reward_field_label(:alipay)
-  end
 end

@@ -148,13 +148,4 @@ describe UsersController do
     end
   end
 
-  describe "GET /users/:id/reward" do
-    it "should not allow user close" do
-      user.update_reward_fields(alipay: "XXXXXXX")
-
-      get reward_user_path(user), xhr: true
-      assert_equal 200, response.status
-      assert_includes response.body, "XXXXXXX"
-    end
-  end
 end

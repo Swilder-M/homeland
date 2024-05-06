@@ -962,48 +962,6 @@ textarea.div-dropzone-focus {
   }
 }
 
-.reward-image {
-  border-radius: 3px;
-  padding: 20px;
-  background: transparent;
-  text-align: center;
-  img {
-    max-width: 240px;
-  }
-}
-
-#reward-modal {
-  top: 30px;
-  text-align: center;
-  .modal-dialog {
-    max-width: 750px;
-    min-height: 300px;
-  }
-  .reward-images {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-  }
-  .reward-image {
-    padding: 0px 20px 10px 20px;
-  }
-  .message {
-    margin: 10px auto 0 auto;
-    max-width: 580px;
-    font-size: 16px;
-    text-align: center;
-    .user-info {
-      margin-bottom: 15px;
-    }
-    .media-object {
-      display: inline-block;
-    }
-    i.fa {
-      color: #aaa;
-    }
-  }
-}
-
 .topic-references {
   .nav {
     @apply px-4 pt-2 space-x-4;

@@ -32,7 +32,6 @@ Rails.application.routes.draw do
       get :account
       get :password
       get :profile
-      get :reward
     end
   end
 
@@ -215,7 +214,6 @@ Rails.application.routes.draw do
         post :unfollow
         get :followers
         get :following
-        get :reward
       end
 
       resources :team_users, path: "people" do

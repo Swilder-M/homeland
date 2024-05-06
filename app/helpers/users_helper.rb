@@ -113,10 +113,4 @@ module UsersHelper
     end
   end
 
-  def reward_user_tag(user, opts = {})
-    return "" if user.blank?
-    return "" unless user.reward_enabled?
-    opts[:class] ||= "btn btn-success"
-    link_to icon_tag("qrcode", label: t("common.reward")), main_app.reward_user_path(user), remote: true, class: opts[:class]
-  end
 end
