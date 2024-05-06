@@ -2,6 +2,8 @@
 
 class ProfileCardComponent < ApplicationComponent
   delegate :follow_user_tag, to: :helpers
+  delegate :block_user_tag, to: :helpers
+
 
   attr_reader :user
 

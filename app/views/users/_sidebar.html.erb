@@ -40,20 +40,6 @@
           <span class="divider">/</span>
           <%= t("users.replies_count_html", count: @user.replies_count) %>
         </div>
-        <div class="item social">
-          <% if !@user.twitter.blank? %>
-            <%= link_to icon_bold_tag("twitter"), @user.twitter_url, class: "twitter", rel: "nofollow" %>
-          <% end %>
-          <% if Setting.has_module? :github %>
-            <% if !@user.github.blank? %>
-              <%= link_to(icon_bold_tag("github"), @user.github_url, target: '_blank', rel: 'nofollow') %>
-            <% end %>
-          <% end %>
-          <% if !@user.website.blank? %>
-            <%= link_to(icon_tag("globe"), @user.website_url, target: '_blank', rel: 'nofollow') %>
-          <% end %>
-          <%= link_to(icon_tag("rss"), feed_user_url(@user), target: '_blank', rel: 'nofollow') %>
-        </div>
       </div>
       <div class="flex items-center follow-info md:justify-between hide-ios">
         <div class="followers" data-login="<%= @user.login %>">
@@ -86,17 +72,4 @@
       <% end %>
     </div>
   </div>
-  <% if Setting.has_module?(:team) %>
-    <% @user_teams = @user.teams %>
-    <% if !@user_teams.blank? %>
-      <div class="mb-4 card user-teams">
-        <div class="card-body">
-          <% @user_teams.each do |team| %>
-            <%= user_avatar_tag(team, :md) %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-  <%= render '/users/repos', user: @user %>
 </div>
