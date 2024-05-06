@@ -7,7 +7,6 @@ class Profile < ApplicationRecord
     facebook instagram dribbble battle_tag psn_id steam_id]
 
   # store :contacts, coder: JSON
-  # store :rewards, coder: JSON
   # store_accessor :contacts, *CONTACT_FIELDS
   store_accessor :preferences, :theme
 
@@ -23,10 +22,6 @@ class Profile < ApplicationRecord
   }
 
   def self.contact_field_label(field)
-    I18n.t("activerecord.attributes.profile.contacts.#{field}")
-  end
-
-  def self.reward_field_label(field)
     I18n.t("activerecord.attributes.profile.contacts.#{field}")
   end
 

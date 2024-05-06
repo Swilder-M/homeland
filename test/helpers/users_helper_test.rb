@@ -76,16 +76,4 @@ class UsersHelperTest < ActionView::TestCase
       end
     end
   end
-
-  test "reward_user_tag" do
-    user = create(:user)
-    assert_equal "", reward_user_tag(user)
-    assert_equal "", reward_user_tag(nil)
-
-    user.update_reward_fields(alipay: "xxx")
-    html = reward_user_tag(user)
-    assert_equal %(<a class="btn btn-success" data-remote="true" href="/#{user.login}/reward"><i class='icon fa fa-qrcode'></i> <span>Reward</span></a>), html
-    html = reward_user_tag(user, class: "btn btn-secondary")
-    assert_equal %(<a class="btn btn-secondary" data-remote="true" href="/#{user.login}/reward"><i class='icon fa fa-qrcode'></i> <span>Reward</span></a>), html
-  end
 end

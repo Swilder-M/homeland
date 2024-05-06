@@ -26,16 +26,6 @@ describe SettingsController do
     end
   end
 
-  describe "GET /setting/reword" do
-    it "should work" do
-      sign_in user
-      get reward_setting_path
-      assert_equal 200, response.status
-      assert_equal true, response.body.include?("关于打赏")
-      assert_equal true, response.body.include?(%(enctype="multipart/form-data"))
-    end
-  end
-
   describe "GET /setting/account" do
     it "should work" do
       sign_in user

@@ -7,7 +7,6 @@ class User < ApplicationRecord
   include User::SoftDelete
   include User::Avatar
   include User::Deviseable
-  include User::RewardFields
   include User::ProfileFields
   include User::GitHubRepository
   include User::TopicActions
