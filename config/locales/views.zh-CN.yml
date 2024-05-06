@@ -186,7 +186,7 @@ zh-CN:
     sorted_plugins: 插件排序，调整这个可以影响插件在导航栏的顺序。请用换行或逗号间隔，比如："jobs, wiki, press, site"。
     timezone: 日期时间显示时区，默认：UTC
     profile_fields: >-
-      用户个性资料支持字段，默认：all
+      用户个性资料支持字段，一行一个，默认：all
       可选：[company,twitter,website,tagline,location,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
     modules: 启用模块，默认 all 全部开启，可选：[topic,team,github,editor.code]
     domain: 网站域名，默认：localhost
