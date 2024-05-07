@@ -1,6 +1,14 @@
 <ul id="main-nav-menu" class="navbar-nav my-0 flex flex-md-row list-none flex-col md:flex-row">
   <%= render_list_items do |li|
-    li << link_to(t("menu.topics"), main_app.root_path, class: "nav-link")
+    li << link_to(t("topics.topic_list.home"), main_app.root_path, class: "nav-link")
+    li << link_to(t("topics.topic_list.popular"), main_app.popular_topics_path, class: "nav-link")
+    li << link_to(t("topics.topic_list.excellent"), main_app.excellent_topics_path, class: "nav-link")
+    li << link_to(t("topics.topic_list.recent"), main_app.last_topics_path, class: "nav-link")
+    li << link_to(t("topics.topic_list.last_reply"), main_app.last_reply_topics_path, class: "nav-link")
+
+    if can?(:ban, Topic)
+      li << link_to(t("topics.topic_list.banned"), main_app.banned_topics_path, class: "nav-link")
+    end
 
     Homeland.navbar_plugins.each do |plugin|
       li << link_to(plugin.display_name, plugin.root_path, class: "nav-link")
