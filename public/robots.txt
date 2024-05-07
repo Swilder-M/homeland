@@ -1,2 +1,6 @@
 user-agent: *
 Disallow: /cable
+Disallow: /admin
+Disallow: /exception-track
+Disallow: /pghero
+Disallow: /sidekiq
