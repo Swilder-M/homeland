@@ -236,12 +236,13 @@ zh-CN:
     banned_topic: 内容不符合版规屏蔽此话题。
     topic_has_been_banned_html: 此话题已暂时被管理员屏蔽。
     topic_list:
-      recent: 新帖
-      last_reply: 最新回复
-      popular: 优质讨论
+      recent: 新发布
+      last_reply: 新回复
+      popular: 热门
       banned: 已屏蔽
-      excellent: 精华帖
+      excellent: 精华
       latest: 默认
+      home: 首页
     read_topic: 浏览话题
     create_topic_success: 话题创建成功。
     delete_topic_success: 话题删除成功。

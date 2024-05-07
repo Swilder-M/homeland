@@ -254,6 +254,7 @@ en:
       popular: Popular
       excellent: Excellent
       banned: Banned
+      home: Home
     read_topic: Read Topic
     create_topic_success: Topic created successfully.
     delete_topic_success: Topic deleted successfully..
