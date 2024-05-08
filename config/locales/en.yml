@@ -35,7 +35,6 @@ en:
       user: "User"
       topic: "Topic"
       post: "Post"
-      page: "Wiki"
     attributes:
       user:
         name: "Name"

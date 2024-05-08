@@ -43,25 +43,6 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal false, admin?(nil)
   end
 
-  test "wiki_editor?" do
-    non_editor = create :user
-    editor = create :vip
-
-    # knows non editor is not wiki editor
-    assert_equal false, wiki_editor?(non_editor)
-
-    # knows wiki editor is wiki editor
-    assert_equal true, wiki_editor?(editor)
-
-    # use current_user if user not given
-    sign_in editor
-    assert_equal true, wiki_editor?(nil)
-
-    # know you are not an wiki editor if current_user not present and user param is not given
-    sign_out
-    assert_equal false, wiki_editor?(nil)
-  end
-
   test "owner?" do
     require "ostruct"
 

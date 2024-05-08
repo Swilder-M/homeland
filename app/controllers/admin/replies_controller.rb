@@ -22,6 +22,14 @@ module Admin
       redirect_to edit_admin_reply_path(@reply.id)
     end
 
+    def update
+      if @reply.update(params[:reply].permit!)
+        redirect_to(admin_replies_path, notice: t("views.admin.reply_update_successfully"))
+      else
+        render action: "edit"
+      end
+    end
+
     def destroy
       @reply.destroy
     end

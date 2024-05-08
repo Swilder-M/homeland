@@ -86,8 +86,8 @@ class SettingTest < ActiveSupport::TestCase
   end
 
   test "sorted_plugins" do
-    Setting.sorted_plugins = "press,wiki,note,jobs"
-    assert_equal %w[press wiki note jobs], Setting.sorted_plugins
+    Setting.sorted_plugins = "press,note,jobs"
+    assert_equal %w[press note jobs], Setting.sorted_plugins
   end
 
   test "profile_fields" do

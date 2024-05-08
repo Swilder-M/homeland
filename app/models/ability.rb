@@ -32,7 +32,6 @@ class Ability
   def roles_for_members
     roles_for_topics
     roles_for_replies
-    roles_for_comments
     roles_for_photos
     roles_for_teams
     roles_for_team_users
@@ -91,12 +90,6 @@ class Ability
     can :destroy, Photo, user_id: user.id
   end
 
-  def roles_for_comments
-    can :create, Comment
-    can :update, Comment, user_id: user.id
-    can :destroy, Comment, user_id: user.id
-  end
-
   def roles_for_teams
     can [:update, :destroy], Team do |team|
       team.owner?(user)
@@ -113,7 +106,6 @@ class Ability
     can %i[read feed node], Topic
     can %i[read reply_to], Reply
     can :read, Photo
-    can :read, Comment
     can :read, Team
   end
 end

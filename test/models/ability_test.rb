@@ -11,7 +11,6 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:manage, Reply)
     assert ability.can?(:manage, Node)
     assert ability.can?(:manage, Photo)
-    assert ability.can?(:manage, Comment)
     assert ability.can?(:manage, Team)
     assert ability.can?(:manage, TeamUser)
   end
@@ -23,15 +22,6 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:lock_node, Topic)
     assert ability.can?(:manage, Reply)
     assert ability.can?(:manage, Node)
-    assert ability.can?(:create, Team)
-  end
-
-  test "Vip manage wiki" do
-    vip = create :vip
-    ability = Ability.new(vip)
-
-    assert ability.cannot?(:suggest, Topic)
-    assert ability.cannot?(:unsuggest, Topic)
     assert ability.can?(:create, Team)
   end
 
@@ -66,7 +56,6 @@ class AbilityTest < ActiveSupport::TestCase
     topic1 = create :topic
     locked_topic = create :topic, user: user, lock_node: true
     reply = create :reply, user: user
-    comment = create :comment, user: user, commentable: CommentablePage.create(name: "Fake Wiki", id: 1)
     team_owner = create :team_owner, user: user
     team_member = create :team_member, user: user
 
@@ -107,12 +96,6 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:create, Photo)
     assert ability.can?(:read, Photo)
 
-    # Comment
-    assert ability.can?(:create, Comment)
-    assert ability.can?(:read, Comment)
-    assert ability.can?(:update, comment)
-    assert ability.can?(:destroy, comment)
-
     # Team
     assert ability.cannot?(:create, Team)
     assert ability.can?(:read, Team)
@@ -148,7 +131,6 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.cannot?(:create, Topic)
     assert ability.cannot?(:create, Reply)
-    assert ability.cannot?(:create, Comment)
     assert ability.cannot?(:create, Photo)
   end
 
@@ -158,7 +140,6 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.cannot?(:create, Topic)
     assert ability.cannot?(:create, Reply)
-    assert ability.cannot?(:create, Comment)
     assert ability.cannot?(:create, Photo)
   end
 end

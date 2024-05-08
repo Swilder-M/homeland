@@ -5,11 +5,9 @@ en:
       site_configs: Settings
       users: Users
       nodes: Nodes
-      wiki: Wiki
       topics: Topics
       replies: Replies
       photos: Photos
-      comments: Comments
       locations: Locations
       exception_logs: Errors
       plugins: Plugins
@@ -24,7 +22,6 @@ en:
       users_count: Users Total
       notifications_count: Notifications Total
       photos_count: Photos Total
-      comments_count: Comments Total
     recent_topics: Recent Topics
     statics: Statistics
     reboot: Reboot
@@ -33,7 +30,6 @@ en:
       please_do_not_modify_key: Please do not modify key
       edit_setting: Edit Settings
     users:
-      trust_user_can_modify_wiki: Allow user to modify Wiki
       Delete recent 10 photos: Delete recent 10 photos
       Delete recent 10 topics: Delete recent 10 topics
       Delete recent 10 replies: Delete recent 10 replies
@@ -63,6 +59,7 @@ en:
         Recent 10 replies has been deleted successfully, now %{name} still %{count}
         replies
       node_update_successfully: Node was successfully updated.
+      reply_update_successfully: Reply was successfully updated.
       recent_10_topics_has_been_deleted_successfully: >-
         Recent 10 topics has been deleted successfully, now %{name} still have
         %{count} topics.
