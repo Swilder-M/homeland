@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_06_080724) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "actions", id: :serial, force: :cascade do |t|
@@ -34,19 +35,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_080724) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.index ["provider", "uid"], name: "index_authorizations_on_provider_and_uid"
-  end
-
-  create_table "comments", id: :serial, force: :cascade do |t|
-    t.text "body", null: false
-    t.integer "user_id", null: false
-    t.string "commentable_type"
-    t.integer "commentable_id"
-    t.datetime "deleted_at", precision: nil
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
-    t.index ["commentable_type"], name: "index_comments_on_commentable_type"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "counters", force: :cascade do |t|
@@ -164,19 +152,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_080724) do
     t.boolean "confidential", default: true, null: false
     t.index ["owner_id", "owner_type"], name: "index_oauth_applications_on_owner_id_and_owner_type"
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
-  end
-
-  create_table "page_versions", id: :serial, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "page_id", null: false
-    t.integer "version", default: 0, null: false
-    t.string "slug", null: false
-    t.string "title", null: false
-    t.text "desc", null: false
-    t.text "body", null: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["page_id"], name: "index_page_versions_on_page_id"
   end
 
   create_table "photos", id: :serial, force: :cascade do |t|

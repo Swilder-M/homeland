@@ -71,16 +71,6 @@
         </div>
       </div>
     </div>
-    <div id="comment-stat">
-      <div class="stat">
-        <div class="total">0</div>
-        <div class="name">
-          <%= t("admin.dashboard.comments_count") %>
-          <span class="total-week" rel="twipsy" title="Weekly">+0</span>
-          <span class="total-month" rel="twipsy" title="Monthly">+0</span>
-        </div>
-      </div>
-    </div>
     <div id="photo-stat">
       <div class="stat">
         <div class="total">0</div>
@@ -100,7 +90,7 @@
       el.find(".total-month").text('+' + data.month_count);
     }
     
-    var models = ['user', 'topic', 'reply', 'notification', 'photo', 'comment'];
+    var models = ['user', 'topic', 'reply', 'notification', 'photo'];
     for (var i = 0; i < models.length; i ++) {
       var model = models[i];
       $.get("/admin/stats?model="+ model +"&by=month", function(data) {

@@ -20,12 +20,6 @@ module ApplicationHelper
     user.admin?
   end
 
-  def wiki_editor?(user = nil)
-    user ||= current_user
-    return false if user.blank?
-    user.wiki_editor?
-  end
-
   def owner?(item)
     return false if item.blank? || current_user.blank?
     if item.is_a?(User)

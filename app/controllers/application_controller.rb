@@ -37,12 +37,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_active_menu
   def set_active_menu
-    @current = case controller_name
-    when "pages"
-      ["/wiki"]
-    else
-      ["/#{controller_name}"]
-    end
+    @current = ["/#{controller_name}"]
   end
 
   def render_404

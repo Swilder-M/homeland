@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       authorized_applications: "oauth/authorized_applications"
   end
 
-  resources :comments
   resources :devices
   resources :teams
 
@@ -121,7 +120,6 @@ Rails.application.routes.draw do
       end
     end
     resources :photos
-    resources :comments
     resources :locations
     resources :applications
     resources :stats

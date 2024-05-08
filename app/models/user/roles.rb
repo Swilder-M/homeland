@@ -14,10 +14,6 @@ class User
       end
     end
 
-    def wiki_editor?
-      admin? || maintainer? || vip?
-    end
-
     # Site editor (replies_count >= 150)
     def site_editor?
       admin? || maintainer? || replies_count >= 100
@@ -34,7 +30,6 @@ class User
     # used in Plugin
     def roles?(role)
       case role
-      when :wiki_editor then wiki_editor?
       when :site_editor then site_editor?
       else
         state.to_s == role.to_s

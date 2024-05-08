@@ -116,18 +116,6 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "wiki_editor?" do
-    admin = User.new(state: :admin)
-    assert_equal true, admin.wiki_editor?
-    assert_equal false, user.wiki_editor?
-
-    user = User.new(state: :vip)
-    assert_equal true, user.wiki_editor?
-
-    user = User.new
-    assert_equal false, user.wiki_editor?
-  end
-
   test "newbie?" do
     # should true when user created_at less than a week
     Setting.stubs(:newbie_limit_time).returns(1.days.to_i)
@@ -173,10 +161,6 @@ class UserTest < ActiveSupport::TestCase
     # when is admin
     user = User.new(state: :admin)
     assert_equal true, user.roles?(:admin)
-
-    # when is wiki editor
-    user = User.new(state: :vip)
-    assert_equal true, user.roles?(:wiki_editor)
 
     # when ask for some random role
     user = create :user

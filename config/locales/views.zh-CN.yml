@@ -62,8 +62,6 @@ zh-CN:
     statics_replies_count: 回帖数：%{count} 条
     statics_online_users_count: "%{count} 人在线"
     online: 在线
-    comments: 评论
-    new_comment: 发表新评论
     no_search_result: 没有搜索到相关内容。
     access_denied: 访问被拒绝，你可能没有权限或未登录。
     editor_toolbar_edit: 编辑
@@ -110,7 +108,6 @@ zh-CN:
   menu:
     home: 首页
     topics: 社区
-    wiki: Wiki
     gems: Gems
     users: 会员
     admin: 管理后台
@@ -119,9 +116,6 @@ zh-CN:
     likes: 你收藏的话题
     teams: 公司／组织
     back_to_front: 回到前台
-  comments:
-    create_comment: 发表评论
-    no_comment: 暂无评论
   mail:
     login_from: 登录页面地址
     this_is_a_notification_mail_please_do_not_reply: 这是一封提醒邮件，请勿直接通过邮件回复。
@@ -160,8 +154,6 @@ zh-CN:
     before_topic_html: 话题正文前面的 HTML
     after_topic_html: 话题后面的 HTML
     footer_html: 页脚 HTML
-    wiki_index_html: WIKI 首页 HTML
-    wiki_sidebar_html: WIKI 边栏 HTML
     tips: 随机显示的小帖士（一行一个）
     ban_words_on_reply: 回帖禁止内容（一行一个）
     ban_words_in_body: 正文里面禁止提及的内容，为避免误判，请准确描述，不要写太短的词
@@ -183,7 +175,7 @@ zh-CN:
       分享目标，可选
       [twitter,weibo,facebook,wechat,google_plus,douban,tumblr,pinterest,linkedin,email,reddit,hacker_news]
     editor_languages: 编辑器插入代码语言可选项（一行一个），填写文件扩展名比如："rb, go, php, js, html"
-    sorted_plugins: 插件排序，调整这个可以影响插件在导航栏的顺序。请用换行或逗号间隔，比如："jobs, wiki, press, site"。
+    sorted_plugins: 插件排序，调整这个可以影响插件在导航栏的顺序。请用换行或逗号间隔，比如："jobs, press, site"。
     timezone: 日期时间显示时区，默认：UTC
     profile_fields: >-
       用户个性资料支持字段，一行一个，默认：all
@@ -415,7 +407,6 @@ zh-CN:
   notifications:
     source_deleted: 相关信息已删除
     mention_title_html: 在 <a href="%{url}">%{title}</a> 提及了你
-    comment_title_html: 在你发布的 <a href="%{url}">%{title}</a> 评论了
     reply_title_html: 回复了话题 %{topic}
     topic_title_html: 创建了话题 %{topic}
     follow_you: 关注了你。

@@ -64,9 +64,6 @@ module Mentionable
       if instance_of?(Reply)
         note[:second_target_type] = "Topic"
         note[:second_target_id] = send(:topic_id)
-      elsif instance_of?(Comment)
-        note[:second_target_type] = commentable_type
-        note[:second_target_id] = commentable_id
       end
       note
     end
