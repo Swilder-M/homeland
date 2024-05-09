@@ -15,7 +15,7 @@ module UsersHelper
     if user.is_a? User
       user_type = user.user_type
       login = user.login
-      label = (user_type == :team) ? user.name : user.login
+      label = user.login
       name = user.name
     end
 
@@ -25,7 +25,6 @@ module UsersHelper
 
     link_to(label, "/#{login}", options)
   end
-  alias_method :team_name_tag, :user_name_tag
 
   def user_avatar_width_for_size(size)
     case size

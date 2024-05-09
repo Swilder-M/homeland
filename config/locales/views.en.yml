@@ -113,7 +113,6 @@ en:
     nodes: Nodes
     edit_account_path: Settings
     likes: Your favorites
-    teams: Teams
     back_to_front: Back to front
   mail:
     login_from: Sign in from
@@ -189,8 +188,8 @@ en:
     timezone: "Timezone, default: UTC"
     profile_fields: >-
       User profile fields, one per line, default: all, options:
-      [company,twitter,website,tagline,location,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
-    modules: "Enable modules, default: all, options: [topic,team,github,editor.code]"
+      [company,twitter,website,tagline,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
+    modules: "Enable modules, default: all, options: [topic,github,editor.code]"
     rack_attack: >-
       Request rate limit. limit - Limit on the number of single IP requests per
       cycle, period - How much time (seconds) is a request limit period
@@ -284,7 +283,6 @@ en:
     new_reply_received_html: New Reply comming, click to load.
     form:
       title_placeholder: Type a topic title
-      no_team: No team
       markdown_guides: Markdown Guides
     menu:
       pin: Pin
@@ -311,7 +309,6 @@ en:
     close_limit: Topic has been closed, no longer accepting create or update replies.
   users:
     bios: Bio
-    city: City
     theme_auto: Auto
     theme_light: Light
     theme_dark: Dark
@@ -355,9 +352,7 @@ en:
     resend_unlock_mail: Resend unlock email
     current_have: Current have
     users_joined: users joined
-    teams_joined: teams joined
     hot_users: Top 100 active users
-    hot_teams: Top active teams
     recent_joined: Most recently joined users
     submit_new_user: Sign Up
     update_profile: Update
@@ -395,35 +390,6 @@ en:
       blocked: Blocked
     yearly: Yearly
     monthly: Monthly
-  team_user_status:
-    pendding: Awaiting response
-    acceped: Accepted
-  team_user_role:
-    owner: Owner
-    member: Member
-  teams:
-    teams: Team
-    user_existed: Already in this team
-    new_team: New Team
-    edit_team: Edit team profile
-    new_team_user: Add a member
-    all_members: All members
-    edit_team_user: Change team roles
-    delete_team_user: Remove member
-    show_team_user: View invitations
-    accept_team_user: Accept invitation
-    do_you_want_accept_team_user_html: Do you want to accept invitation to join <b>%{team}</b>?
-    reject_team_user: Decline
-    delete_team_user_confirm: Are you sure you want to remove this user from team?
-    topics: Topics of members
-    users: Members
-    team_user_pendding: Awaiting response
-    settings: Settings
-    team_users_count: "%{count} team members"
-    invite_success: Invite success.
-    remove_success: Leaved team successfully
-    accept_success: Accept successfully, you are a member of team.
-    reject_success: Successfully rejected.
   user_setting:
     profile: Profile
     profile_detail: Social Profiles

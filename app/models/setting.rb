@@ -83,11 +83,11 @@ class Setting < RailsSettings::Base
   scope :basic do
     field :app_name, default: (ENV["app_name"] || "Homeland"), validates: {presence: true}
     field :timezone, default: "UTC"
-    # Module [topic,team,github,editor.code]
+    # Module [topic,github,editor.code]
     field :modules, default: (ENV["modules"] || "all"), type: :array
     # Plugin sort
     field :sorted_plugins, default: [], type: :array, separator: /[\s,]+/
-    # User profile module default: all [company,twitter,website,tagline,location,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
+    # User profile module default: all [company,twitter,website,tagline,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
     field :profile_fields, default: (ENV["profile_fields"] || "all"), type: :array
     field :admin_emails, type: :array, default: (ENV["admin_emails"] || "admin@admin.com"), separator: /[\s,]+/
     field :twitter_id

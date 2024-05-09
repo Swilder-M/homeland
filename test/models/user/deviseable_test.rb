@@ -55,11 +55,6 @@ class User::DeviseableTest < ActiveSupport::TestCase
     assert_equal true, Monkey.new_from_provider_data(nil, nil, data).password.present?
   end
 
-  test "new_from_provider_data should set user location" do
-    data["location"] = "Shanghai"
-    assert_equal "Shanghai", Monkey.new_from_provider_data(nil, nil, data).location
-  end
-
   test "new_from_provider_data should set user tagline" do
     description = data["description"] = "A newbie Ruby developer"
     assert_equal description, Monkey.new_from_provider_data(nil, nil, data).tagline

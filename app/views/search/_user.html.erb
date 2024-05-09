@@ -1,7 +1,3 @@
-<% if item.organization? %>
-  <%= render 'team', item: item, hit: hit %>
-<% else %>
-
 <div class="result user media">
   <div class="media">
     <div class="mr-3 avatar media-left">
@@ -13,9 +9,6 @@
         <span class="level"><%= user_level_tag(item) %></span>
       </div>
       <div class="info number">
-        <span title="Created At"><%= item.created_at.to_date %></span>
-        <% if item.location.present? %> • <span title="Location"><%= location_name_tag(item.location) %></span><% end %>
-        •
         <span><%= item.topics_count %></span> Topics • <span><%= item.replies_count %></span> Replies
       </div>
     </div>

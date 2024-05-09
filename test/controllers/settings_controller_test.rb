@@ -57,7 +57,7 @@ describe SettingsController do
     it "should work" do
       old_login = user.login
       sign_in user
-      put setting_path, params: {user: {login: "new-#{user.login}", location: "BeiJing", profiles: {alipay: "alipay"}}}
+      put setting_path, params: {user: {login: "new-#{user.login}", tagline: "Hello", profiles: {alipay: "alipay"}}}
       assert_redirected_to setting_path
 
       user.reload
@@ -71,21 +71,21 @@ describe SettingsController do
       assert_equal "new-#{old_login}", user.login
 
       sign_in user
-      put setting_path, params: {user: {location: "BeiJing"}, user_profile: {alipay: "alipay"}}
+      put setting_path, params: {user: {tagline: "Hello"}, user_profile: {alipay: "alipay"}}
       assert_redirected_to setting_path
 
-      put setting_path, params: {user: {location: "BeiJing", theme: "dark"}}
+      put setting_path, params: {user: {tagline: "Hello", theme: "dark"}}
       user.reload
       assert_equal "dark", user.theme
       assert_redirected_to setting_path
 
       old_theme = user.theme
-      put setting_path, params: {user: {location: "BeiJing", theme: "foo"}}
+      put setting_path, params: {user: {tagline: "Hello", theme: "foo"}}
       user.reload
       assert_equal old_theme, user.theme
       assert_redirected_to setting_path
 
-      put setting_path, params: {by: "profile", user: {location: "BeiJing"}, user_profile: {alipay: "alipay"}}
+      put setting_path, params: {by: "profile", user: {tagline: "Hello"}, user_profile: {alipay: "alipay"}}
       assert_redirected_to profile_setting_path
 
       password_params = {

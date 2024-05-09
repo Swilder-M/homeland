@@ -33,8 +33,6 @@ class Ability
     roles_for_topics
     roles_for_replies
     roles_for_photos
-    roles_for_teams
-    roles_for_team_users
     basic_read_only
   end
 
@@ -46,12 +44,10 @@ class Ability
 
   # VIP
   def roles_for_vip
-    can :create, Team
   end
 
   # Mantainer
   def roles_for_maintainer
-    can :create, Team
     can :manage, Node
     can :manage, Topic
     can :lock_node, Topic
@@ -90,22 +86,9 @@ class Ability
     can :destroy, Photo, user_id: user.id
   end
 
-  def roles_for_teams
-    can [:update, :destroy], Team do |team|
-      team.owner?(user)
-    end
-  end
-
-  def roles_for_team_users
-    can :read, TeamUser, user_id: user.id
-    can :accept, TeamUser, user_id: user.id
-    can :reject, TeamUser, user_id: user.id
-  end
-
   def basic_read_only
     can %i[read feed node], Topic
     can %i[read reply_to], Reply
     can :read, Photo
-    can :read, Team
   end
 end

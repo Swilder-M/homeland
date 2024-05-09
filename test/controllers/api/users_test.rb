@@ -47,7 +47,7 @@ describe Api::V3::UsersController do
       user = create(:user, name: "test user", login: "test_user", email: "foobar@gmail.com", bio: "hello world", email_public: true)
       get "/api/v3/users/test_user.json"
       assert_equal 200, response.status
-      fields = %w[id name login email avatar_url location company twitter github website bio tagline
+      fields = %w[id name login email avatar_url company twitter github website bio tagline
         topics_count replies_count following_count followers_count favorites_count
         level level_name]
 

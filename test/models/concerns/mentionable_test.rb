@@ -66,18 +66,6 @@ class MentionableTest < ActiveSupport::TestCase
     end
   end
 
-  test "should not mention Team" do
-    team = create :team
-    user1 = create :user
-    doc = TestDocument.create body: "@#{team.login} @#{user1.login}", user: create(:user)
-    doc.extract_mentioned_users
-    assert_equal doc.mentioned_user_ids, [user1.id]
-
-    assert_no_changes -> { Notification.count } do
-      TestDocument.create body: "@#{team.login}", user: create(:user)
-    end
-  end
-
   test "should send mention to reply_to user" do
     user = create :user
     last_doc = TestDocument.create body: "@#{user.login}", user: user

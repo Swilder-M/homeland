@@ -20,7 +20,6 @@ class Topic < ApplicationRecord
   action_store :reference, :topic
 
   belongs_to :user, inverse_of: :topics, counter_cache: true, required: false
-  belongs_to :team, counter_cache: true, required: false
   belongs_to :node, counter_cache: true, required: false
   belongs_to :last_reply_user, class_name: "User", required: false
   belongs_to :last_reply, class_name: "Reply", required: false

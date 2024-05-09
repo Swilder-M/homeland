@@ -17,9 +17,6 @@
     <div class="info">
       <%= user_name_tag(topic.user, data: { author: true }) %>
       <span class="hidden-mobile">
-        <% if topic.team %>
-        for <%= user_name_tag(topic.team) %>
-        <% end %>
       </span>
        ·
       <%= timeago(topic.created_at) %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_055433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -64,14 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.text "body"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "locations", id: :serial, force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "users_count", default: 0, null: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["name"], name: "index_locations_on_name"
   end
 
   create_table "nodes", id: :serial, force: :cascade do |t|
@@ -209,17 +201,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
   end
 
-  create_table "team_users", id: :serial, force: :cascade do |t|
-    t.integer "team_id", null: false
-    t.integer "user_id", null: false
-    t.integer "role"
-    t.integer "status"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["team_id"], name: "index_team_users_on_team_id"
-    t.index ["user_id"], name: "index_team_users_on_user_id"
-  end
-
   create_table "topics", id: :serial, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "node_id", null: false
@@ -241,7 +222,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.datetime "closed_at", precision: nil
-    t.integer "team_id"
     t.index ["deleted_at"], name: "index_topics_on_deleted_at"
     t.index ["grade"], name: "index_topics_on_grade"
     t.index ["last_active_mark"], name: "index_topics_on_last_active_mark"
@@ -249,7 +229,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.index ["likes_count"], name: "index_topics_on_likes_count"
     t.index ["node_id", "deleted_at"], name: "index_topics_on_node_id_and_deleted_at"
     t.index ["suggested_at"], name: "index_topics_on_suggested_at"
-    t.index ["team_id"], name: "index_topics_on_team_id"
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
@@ -272,8 +251,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.string "email", null: false
     t.string "email_md5", null: false
     t.boolean "email_public", default: false, null: false
-    t.string "location"
-    t.integer "location_id"
     t.string "bio"
     t.string "website"
     t.string "company"
@@ -303,13 +280,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_163803) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at", precision: nil
-    t.integer "team_users_count"
     t.integer "followers_count", default: 0
     t.integer "following_count", default: 0
     t.index "lower((login)::text) varchar_pattern_ops", name: "index_users_on_lower_login_varchar_pattern_ops"
     t.index "lower((name)::text) varchar_pattern_ops", name: "index_users_on_lower_name_varchar_pattern_ops"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["location"], name: "index_users_on_location"
     t.index ["login"], name: "index_users_on_login", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end

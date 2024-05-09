@@ -114,7 +114,6 @@ zh-CN:
     nodes: 节点
     edit_account_path: 个人设置
     likes: 你收藏的话题
-    teams: 公司／组织
     back_to_front: 回到前台
   mail:
     login_from: 登录页面地址
@@ -179,8 +178,8 @@ zh-CN:
     timezone: 日期时间显示时区，默认：UTC
     profile_fields: >-
       用户个性资料支持字段，一行一个，默认：all
-      可选：[company,twitter,website,tagline,location,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
-    modules: 启用模块，默认 all 全部开启，可选：[topic,team,github,editor.code]
+      可选：[company,twitter,website,tagline,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
+    modules: 启用模块，默认 all 全部开启，可选：[topic,github,editor.code]
     domain: 网站域名，默认：localhost
     asset_host: 静态资源 CDN，比如：https://assets.your-host.com (如果没有，请留空)
     https: 是否启用 HTTPS
@@ -274,7 +273,6 @@ zh-CN:
     new_reply_received_html: 收到新回复，点击立即加载
     form:
       title_placeholder: 在这里输入标题
-      no_team: 不关联组织
       markdown_guides: 排版说明
     menu:
       pin: 置顶话题
@@ -302,7 +300,6 @@ zh-CN:
     theme_light: 浅色模式
     theme_dark: 深色模式
     bios: 个人介绍
-    city: 城市
     company: 公司
     number_of_user: 第 %{no} 位会员
     join_time: Since
@@ -336,9 +333,7 @@ zh-CN:
     resend_unlock_mail: 重新发送解锁邮件
     current_have: 目前已经有
     users_joined: 位会员加入了
-    teams_joined: 个团队加入了
     hot_users: TOP 100 活跃会员
-    hot_teams: TOP 活跃团队
     recent_joined: 最新加入的会员
     submit_new_user: 提交注册信息
     update_profile: 更新
@@ -369,35 +364,6 @@ zh-CN:
       blocked: 已屏蔽
     yearly: 年度排行
     monthly: 月度排行
-  team_user_status:
-    pendding: 等待接受
-    acceped: 已加入
-  team_user_role:
-    owner: 组管理员
-    member: 成员
-  teams:
-    teams: 组织
-    user_existed: 已经在组里面了
-    new_team: 创建公司／组织
-    edit_team: 设置公司／组织资料
-    new_team_user: 邀请成员
-    all_members: 所有成员
-    edit_team_user: 修改成员权限
-    delete_team_user: 移除成员
-    show_team_user: 查看邀请
-    accept_team_user: 接受邀请
-    reject_team_user: 拒绝
-    delete_team_user_confirm: 确定要将他从组里面移除掉么？
-    do_you_want_accept_team_user_html: 你是否要接受邀请加入 <b>%{team}</b>？
-    topics: 成员的话题列表
-    users: 成员列表
-    team_user_pendding: 等待接受
-    settings: 设置
-    team_users_count: "%{count} 个团队成员"
-    invite_success: 邀请成功。
-    remove_success: 移除成功
-    accept_success: 接受成功，已加入组织
-    reject_success: 已拒绝成功
   user_setting:
     profile: 个人信息
     profile_detail: 详细资料

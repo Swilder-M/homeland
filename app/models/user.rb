@@ -21,7 +21,7 @@ class User < ApplicationRecord
   LOGIN_FORMAT = 'A-Za-z0-9\-\_\.'
   ALLOW_LOGIN_FORMAT_REGEXP = /\A[#{LOGIN_FORMAT}]+\z/
 
-  ACCESSABLE_ATTRS = %i[name email_public location company bio website github twitter tagline avatar by
+  ACCESSABLE_ATTRS = %i[name email_public company bio website github twitter tagline avatar by
     current_password password password_confirmation _rucaptcha]
 
   has_one :profile, dependent: :destroy
@@ -32,8 +32,6 @@ class User < ApplicationRecord
   has_many :photos
   has_many :oauth_applications, class_name: "Doorkeeper::Application", as: :owner
   has_many :devices
-  has_many :team_users
-  has_many :teams, through: :team_users
   has_one :sso, class_name: "UserSSO", dependent: :destroy
 
   countable :monthly_replies_count, :yearly_replies_count
@@ -49,11 +47,9 @@ class User < ApplicationRecord
   after_commit :send_welcome_mail, on: :create
 
   scope :hot, -> { order(replies_count: :desc).order(topics_count: :desc) }
-  scope :without_team, -> { where(type: nil) }
   scope :fields_for_list, lambda {
     select(:type, :id, :name, :login, :email, :email_md5, :email_public,
-      :avatar, :state, :tagline, :github, :website, :location,
-      :location_id, :twitter, :team_users_count, :created_at, :updated_at)
+      :avatar, :state, :tagline, :github, :website, :twitter, :created_at, :updated_at)
   }
 
   # Override Devise database authentication
@@ -103,10 +99,6 @@ class User < ApplicationRecord
     (self[:type] || "User").underscore.to_sym
   end
 
-  def organization?
-    user_type == :team
-  end
-
   def email=(val)
     self.email_md5 = Digest::MD5.hexdigest(val || "")
     self[:email] = val
@@ -143,12 +135,6 @@ class User < ApplicationRecord
   # Only suffix as @example.com can modify email
   def email_locked?
     !legacy_omniauth_logined?
-  end
-
-  def team_options
-    return @team_options if defined? @team_options
-    teams = admin? ? Team.all : self.teams
-    @team_options = teams.collect { |t| [t.name, t.id] }
   end
 
   # for Searchable

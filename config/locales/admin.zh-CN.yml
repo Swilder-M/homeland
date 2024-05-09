@@ -8,7 +8,6 @@ zh-CN:
       topics: 话题
       replies: 回复
       photos: 图片
-      locations: 城市
       exception_logs: 异常
       plugins: 插件
       applications: 三方应用
@@ -42,7 +41,6 @@ zh-CN:
     reboot_successfully: 已经发起了重启命令，Homeland 在后台异步重启，你可以刷新页面，通过服务启动时间变化来确定重启是否完成。
   views:
     admin:
-      location_was_update_successfully: 城市创建成功。
       node_was_successfully_created: 节点创建成功。
       plugin_was_install_success: 插件安装成功，如果页面没有刷新，请手动刷新。
       plugin_was_install_error: 插件安装失败，请检查 zip 包是否为正确的 Homeland 插件格式。
