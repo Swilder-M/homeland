@@ -1,4 +1,11 @@
 class AddTeamUsersCountToUsers < ActiveRecord::Migration[5.0]
+  class Team < ActiveRecord::Base
+    has_many :team_users
+  end
+
+  class User < ActiveRecord::Base
+  end
+
   def up
     add_column :users, :team_users_count, :integer
 
