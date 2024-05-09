@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe UsersController do
-  let(:user) { create :user, location: "Shanghai" }
+  let(:user) { create :user, tagline: "Hello" }
   let(:deleted_user) { create :user, state: User.states[:deleted] }
 
   it "GET /users" do
@@ -19,12 +19,6 @@ describe UsersController do
       get user_path(user.login.upcase)
       assert_equal 301, response.status
       assert_redirected_to user_path(user.login)
-    end
-
-    it "should show team user" do
-      team = create(:team)
-      get user_path(team)
-      assert_equal 200, response.status
     end
 
     it "should 404 with deleted user" do
@@ -132,18 +126,6 @@ describe UsersController do
   describe ":following" do
     it "should work" do
       get following_user_path(user)
-      assert_equal 200, response.status
-    end
-  end
-
-  describe "GET /users/city/:city" do
-    it "should render 404 if there is no user in that city" do
-      get location_users_path("Mars")
-      assert_equal 404, response.status
-    end
-
-    it "should show user associated with that city" do
-      get location_users_path(user.location)
       assert_equal 200, response.status
     end
   end

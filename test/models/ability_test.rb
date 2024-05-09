@@ -11,8 +11,6 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:manage, Reply)
     assert ability.can?(:manage, Node)
     assert ability.can?(:manage, Photo)
-    assert ability.can?(:manage, Team)
-    assert ability.can?(:manage, TeamUser)
   end
 
   test "Maintainer manage Topic, Node" do
@@ -22,7 +20,6 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:lock_node, Topic)
     assert ability.can?(:manage, Reply)
     assert ability.can?(:manage, Node)
-    assert ability.can?(:create, Team)
   end
 
   test "Vip create topic" do
@@ -56,8 +53,6 @@ class AbilityTest < ActiveSupport::TestCase
     topic1 = create :topic
     locked_topic = create :topic, user: user, lock_node: true
     reply = create :reply, user: user
-    team_owner = create :team_owner, user: user
-    team_member = create :team_member, user: user
 
     ability = Ability.new(user)
 
@@ -95,18 +90,6 @@ class AbilityTest < ActiveSupport::TestCase
     # Photo
     assert ability.can?(:create, Photo)
     assert ability.can?(:read, Photo)
-
-    # Team
-    assert ability.cannot?(:create, Team)
-    assert ability.can?(:read, Team)
-    assert ability.can?(:update, team_owner.team)
-    assert ability.cannot?(:update, team_member.team)
-    assert ability.can?(:destroy, team_owner.team)
-    assert ability.cannot?(:destroy, team_member.team)
-
-    # TeamUser
-    assert ability.can?(:accept, team_member)
-    assert ability.can?(:reject, team_member)
   end
 
   test "Normal user but no avatar" do

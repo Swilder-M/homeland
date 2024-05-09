@@ -14,7 +14,6 @@
 #
 # == attributes
 # {include:UserSerializer}
-# - *location* [String] 城市
 # - *company* [String] 公司名称
 # - *github* [String] GitHub ID
 # - *twitter* [String] Twitter ID
@@ -36,7 +35,7 @@ if user
     json.avatar_url user.avatar? ? user.avatar.url(:large) : user.letter_avatar_url(240)
 
     if defined?(detail)
-      json.call(user, :location, :company, :twitter, :website,
+      json.call(user, :company, :twitter, :website,
         :tagline, :github, :created_at,
         :topics_count, :replies_count,
         :following_count, :followers_count, :favorites_count,

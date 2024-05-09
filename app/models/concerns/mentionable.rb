@@ -14,7 +14,7 @@ module Mentionable
   end
 
   def mentioned_users
-    User.without_team.where(id: mentioned_user_ids)
+    User.where(id: mentioned_user_ids)
   end
 
   def mentioned_user_logins
@@ -30,7 +30,7 @@ module Mentionable
     logins.delete(user.login.downcase) if user
 
     if logins.any?
-      self.mentioned_user_ids = User.without_team.where("lower(login) IN (?)", logins).limit(5).pluck(:id)
+      self.mentioned_user_ids = User.where("lower(login) IN (?)", logins).limit(5).pluck(:id)
     end
 
     # add Reply to user_id

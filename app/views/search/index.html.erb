@@ -11,7 +11,7 @@
       <% @result.each do |doc| %>
         <% partial_view_name = doc.searchable_type.downcase -%>
         <% if doc.searchable %>
-          <%= render partial: (partial_view_name == 'team' ? 'user' : partial_view_name), locals: { item: doc.searchable, hit: doc } %>
+          <%= render partial: partial_view_name, locals: { item: doc.searchable, hit: doc } %>
         <% end %>
       <% end %>
     <% end %>

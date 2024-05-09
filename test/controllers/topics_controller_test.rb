@@ -8,7 +8,6 @@ describe TopicsController do
   let(:newbie) { create :newbie }
   let(:node) { create :node }
   let(:admin) { create :admin }
-  let(:team) { create :team }
 
   describe "GET /topics" do
     it "should have an index action" do
@@ -175,11 +174,6 @@ describe TopicsController do
       it "should allow access from authenticated user" do
         sign_in user
         post topics_path, params: {format: :js, topic: {title: "new topic", body: "new body", node_id: node.id}}
-        assert_equal 200, response.status
-      end
-      it "should allow access from authenticated user with team" do
-        sign_in user
-        post topics_path, params: {format: :js, topic: {title: "new topic", body: "new body", node_id: node.id, team_id: team.id}}
         assert_equal 200, response.status
       end
     end

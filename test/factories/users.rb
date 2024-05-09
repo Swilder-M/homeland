@@ -7,7 +7,7 @@ FactoryBot.define do
     sequence(:email) { |n| "email#{n}@gethomeland.com" }
     password { "password" }
     password_confirmation { "password" }
-    location { "China" }
+    tagline { "Hello" }
     created_at { 100.days.ago }
   end
 

@@ -3,7 +3,7 @@
 module Homeland
   class << self
     def version
-      "3.10.11"
+      "3.10.12"
     end
   end
 end

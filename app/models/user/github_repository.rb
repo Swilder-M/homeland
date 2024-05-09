@@ -22,7 +22,7 @@ class User
 
     def github_repos_path
       return nil if github.blank?
-      resource_name = organization? ? "orgs" : "users"
+      resource_name = "users"
       "/#{resource_name}/#{github}/repos?type=owner&sort=pushed"
     end
 

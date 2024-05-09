@@ -78,10 +78,9 @@ class SettingTest < ActiveSupport::TestCase
     assert_equal true, Setting.has_module?("foo")
     assert_equal true, Setting.has_module?("home")
     assert_equal true, Setting.has_module?("topic")
-    Setting.stubs(:modules).returns(["home", "topic\n", "team "])
+    Setting.stubs(:modules).returns(["home", "topic"])
     assert_equal true, Setting.has_module?("home")
     assert_equal true, Setting.has_module?("topic")
-    assert_equal true, Setting.has_module?("team")
     assert_equal false, Setting.has_module?("bbb")
   end
 

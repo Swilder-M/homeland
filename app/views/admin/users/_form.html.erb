@@ -12,12 +12,6 @@
     <%= f.label :email %>
     <%= f.email_field :email, class: "form-control" %>
   </div>
-  <% if Setting.has_profile_field? :location %>
-    <div class="form-group">
-      <%= f.label :location %>
-      <%= f.text_field :location, class: "form-control" %>
-    </div>
-  <% end %>
   <% if Setting.has_module? :github %>
     <div class="form-group">
       <%= f.label :github %>

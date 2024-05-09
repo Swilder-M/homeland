@@ -78,7 +78,6 @@ class User
           end
 
           user.password = Devise.friendly_token[0, 20]
-          user.location = data["location"]
           user.tagline = data["description"]
         end
       end

@@ -81,30 +81,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal [], user.filter_readed_topics([])
   end
 
-  test "location" do
-    assert_equal 0, Location.count
-
-    # should get results when user location is set
-    user.location = "hangzhou"
-    user.reload
-    create(:user, location: "Hongkong")
-    assert_equal 2, Location.count
-
-    # should update users_count when user location changed
-    old_name = user.location
-    new_name = "Chengdu"
-    old_location = Location.location_find_by_name(old_name)
-
-    hk_location = create(:location, name: new_name, users_count: 20)
-    user.location = new_name
-    user.save
-    user.reload
-    assert_equal new_name, user.location
-    assert_equal hk_location.id, user.location_id
-    assert_equal old_location.users_count - 1, Location.location_find_by_name(old_name).users_count
-    assert_equal hk_location.users_count + 1, Location.location_find_by_name(new_name).users_count
-  end
-
   test "admin?" do
     admin = User.new(state: :admin)
     assert_equal true, admin.admin?
@@ -399,24 +375,6 @@ class UserTest < ActiveSupport::TestCase
   test ".email_locked?" do
     assert_equal true, User.new(email: "foobar@gmail.com").email_locked?
     assert_equal false, User.new(email: "foobar@example.com").email_locked?
-  end
-
-  test ".team_options" do
-    create(:user)
-
-    team_users = create_list(:team_user, 2, user: user)
-    teams = team_users.collect(&:team).sort
-    assert_equal teams.collect { |t| [t.name, t.id] }.sort, user.team_options.sort
-  end
-
-  test ".team_options should get all with admin" do
-    user2 = create(:user)
-
-    ids1 = create_list(:team_user, 2, user: user).collect(&:team_id)
-    ids2 = create_list(:team_user, 2, user: user2).collect(&:team_id)
-    user.stub(:admin?, true) do
-      assert_includes_all user.team_options.collect { |_, id| id }, *(ids1 + ids2)
-    end
   end
 
   test ".indexed_changed?" do

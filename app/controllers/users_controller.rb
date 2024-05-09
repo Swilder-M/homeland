@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, except: %i[index city]
-  before_action :check_exist!, except: %i[index city block unblock
+  before_action :set_user, except: %i[index]
+  before_action :check_exist!, except: %i[index block unblock
     follow unfollow]
 
   etag { @user }
-  etag { @user&.teams if @user&.user_type == :user }
 
-  include Users::TeamActions
   include Users::UserActions
 
   def index
@@ -28,17 +26,8 @@ class UsersController < ApplicationController
     @topics = @user.topics.recent.limit(20)
   end
 
-  def city
-    location = Location.location_find_by_name(params[:id])
-    return render_404 if location.nil?
-    @users = User.where(location_id: location.id).without_team.fields_for_list
-    @users = @users.order(replies_count: :desc).page(params[:page]).per(60)
-
-    render_404 if @users.count == 0
-  end
-
   def show
-    (@user_type == :team) ? team_show : user_show
+    user_show
   end
 
   protected

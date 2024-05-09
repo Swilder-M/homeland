@@ -54,7 +54,7 @@ module Admin
 
     def update
       @user = User.find_by_login!(params[:id])
-      type = @user.user_type # Can be :team or :user
+      type = @user.user_type # Can be :user
 
       @user.email = params[type][:email]
       @user.login = params[type][:login]
