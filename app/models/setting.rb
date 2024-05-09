@@ -78,6 +78,7 @@ class Setting < RailsSettings::Base
     mailer_sender
     mailer_options
     mainfest
+    webhook_url
   ]
 
   scope :basic do
@@ -110,6 +111,7 @@ class Setting < RailsSettings::Base
         }
       ]
     }
+    field :webhook_url, default: ""
   end
 
   scope :appearance do
