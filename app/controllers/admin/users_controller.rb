@@ -90,8 +90,6 @@ module Admin
         _clean_topics
       when "photos"
         _clean_photos
-      when "notes"
-        _clean_notes
       end
     end
 
@@ -117,15 +115,6 @@ module Admin
       Photo.unscoped.where(user_id: @user.id).recent.limit(10).destroy_all
       count = Photo.unscoped.where(user_id: @user.id).count
       redirect_to edit_admin_user_path(@user.id), notice: t("views.admin.recent_10_photos_has_been_deleted_successfully", name: @user.login, count: count)
-    end
-
-    def _clean_notes
-      count = 0
-      if defined? Note
-        Note.unscoped.where(user_id: @user.id).recent.limit(10).destroy_all
-        count = Note.unscoped.where(user_id: @user.id).count
-      end
-      redirect_to edit_admin_user_path(@user.id), notice: t("views.admin.recent_10_notes_has_been_deleted_successfully", name: @user.login, count: count)
     end
   end
 end

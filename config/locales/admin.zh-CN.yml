@@ -32,12 +32,11 @@ zh-CN:
       Delete recent 10 photos: 删除最近 10 个图片
       Delete recent 10 topics: 删除最近 10 篇话题
       Delete recent 10 replies: 删除最近 10 条回复
-      Delete recent 10 notes: 删除最近 10 条记事本
     nodes:
       new: 新建节点
       edit: 修改节点
     topic_list: 话题列表
-    check_photo: 瀏覽圖片
+    check_photo: 浏览图片
     reboot_successfully: 已经发起了重启命令，Homeland 在后台异步重启，你可以刷新页面，通过服务启动时间变化来确定重启是否完成。
   views:
     admin:
@@ -55,5 +54,4 @@ zh-CN:
       reply_update_successfully: 回复更新成功。
       recent_10_topics_has_been_deleted_successfully: 成功删除最近 10 条话题，目前 %{name} 还有 %{count} 条。
       recent_10_photos_has_been_deleted_successfully: 成功删除最近 10 条图片，目前 %{name} 还有 %{count} 条。
-      recent_10_notes_has_been_deleted_successfully: 成功删除最近 10 条笔记，目前 %{name} 还有 %{count} 条。
       oauth_applications: OAuth 应用

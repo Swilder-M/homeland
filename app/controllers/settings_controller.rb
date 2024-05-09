@@ -75,6 +75,11 @@ class SettingsController < ApplicationController
     if @user.update(user_params)
       theme = params[:user][:theme]
       @user.update_theme(theme)
+      WebhookJob.perform_later("user_update", {
+        user_id: @user.id,
+        login: @user.login,
+        name: @user.name
+      })
       redirect_to setting_path, notice: t("common.update_success")
     else
       render "show"

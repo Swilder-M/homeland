@@ -84,6 +84,14 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     @topic.node_id = params[:node] || topic_params[:node_id]
     @topic.save
+    if @topic.errors.blank?
+      WebhookJob.perform_later("topic_create", {
+        topic_id: @topic.id,
+        user_id: @topic.user_id,
+        title: @topic.title,
+        body: @topic.body
+      })
+    end
   end
 
   def preview
@@ -106,6 +114,14 @@ class TopicsController < ApplicationController
     @topic.title = topic_params[:title]
     @topic.body = topic_params[:body]
     @topic.save
+    if @topic.errors.blank? && @topic.user_id == current_user.id
+      WebhookJob.perform_later("topic_update", {
+        topic_id: @topic.id,
+        user_id: @topic.user_id,
+        title: @topic.title,
+        body: @topic.body
+      })
+    end
   end
 
   def destroy

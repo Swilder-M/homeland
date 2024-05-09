@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_055433) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_154915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -74,18 +74,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_055433) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.index ["sort"], name: "index_nodes_on_sort"
-  end
-
-  create_table "notes", id: :serial, force: :cascade do |t|
-    t.string "title", null: false
-    t.text "body", null: false
-    t.integer "user_id", null: false
-    t.integer "word_count", default: 0, null: false
-    t.integer "changes_count", default: 0, null: false
-    t.boolean "publish", default: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "notifications", id: :serial, force: :cascade do |t|

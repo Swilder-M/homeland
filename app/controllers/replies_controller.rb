@@ -12,6 +12,12 @@ class RepliesController < ApplicationController
     @reply.user_id = current_user.id
 
     if @reply.save
+      WebhookJob.perform_later("reply_create", {
+        reply_id: @reply.id,
+        user_id: @reply.user_id,
+        topic_id: @reply.topic_id,
+        body: @reply.body
+      })
       current_user.read_topic(@topic)
       @msg = t("replies.created_successfully")
     else
@@ -45,6 +51,14 @@ class RepliesController < ApplicationController
 
   def update
     @reply.update(reply_params)
+    if @reply.errors.blank? && @reply.user_id == current_user.id
+      WebhookJob.perform_later("reply_update", {
+        reply_id: @reply.id,
+        user_id: @reply.user_id,
+        topic_id: @reply.topic_id,
+        body: @reply.body
+      })
+    end
   end
 
   def destroy
