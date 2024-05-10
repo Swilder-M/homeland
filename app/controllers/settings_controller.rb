@@ -77,8 +77,9 @@ class SettingsController < ApplicationController
       @user.update_theme(theme)
       WebhookJob.perform_later("user_update", {
         user_id: @user.id,
-        login: @user.login,
-        name: @user.name
+        user_login: @user.login,
+        user_name: @user.name,
+        user_tagline: @user.tagline
       })
       redirect_to setting_path, notice: t("common.update_success")
     else

@@ -175,6 +175,8 @@ Rails.application.routes.draw do
           post :unfollow
           post :block
           post :unblock
+          post :mute
+          post :update_info
         end
       end
 

@@ -64,9 +64,13 @@
             <div class="card-title hide-ios"><%= t("topics.reply") %></div>
             <% if can? :create, Reply %>
               <%= render 'reply_form' %>
-            <% else %>
+            <% elsif Setting.reject_newbie_reply_in_the_evening %>
               <div class="alert alert-info">
                 <%= t("topics.newbi_info_html") %>
+              </div>
+            <% else %>
+              <div class="alert alert-danger">
+                <%= t("topics.mute_info_html") %>
               </div>
             <% end %>
           </div>

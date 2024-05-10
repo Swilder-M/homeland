@@ -262,6 +262,7 @@ en:
       href="/account/sign_up" class="btn btn-secondary btn-sm">Sign up</a>
       first.
     newbi_info_html: Newbi users cannot reply between 22:00 - 9:00.
+    mute_info_html: You have been muted, cannot reply.
     closed_info_html: Topic has been closed at %{closed_at}, is not accepting any replies.
     topic_pin_successfully: Topic has pinned successfully.
     topic_unpin_successfully: Topic has canceled pin.

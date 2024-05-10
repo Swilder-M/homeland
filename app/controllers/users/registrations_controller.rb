@@ -33,8 +33,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
         WebhookJob.perform_later("user_create", {
           user_id: resource.id,
-          login: resource.login,
-          name: resource.name
+          user_login: resource.login,
+          user_name: resource.name
         })
         respond_with resource, location: after_sign_up_path_for(resource)
       else
