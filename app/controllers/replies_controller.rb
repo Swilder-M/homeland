@@ -15,6 +15,8 @@ class RepliesController < ApplicationController
       WebhookJob.perform_later("reply_create", {
         reply_id: @reply.id,
         user_id: @reply.user_id,
+        user_login: @reply.user.login,
+        user_name: @reply.user.name,
         topic_id: @reply.topic_id,
         body: @reply.body
       })
@@ -55,6 +57,8 @@ class RepliesController < ApplicationController
       WebhookJob.perform_later("reply_update", {
         reply_id: @reply.id,
         user_id: @reply.user_id,
+        user_login: @reply.user.login,
+        user_name: @reply.user.name,
         topic_id: @reply.topic_id,
         body: @reply.body
       })

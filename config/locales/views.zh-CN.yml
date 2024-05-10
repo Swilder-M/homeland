@@ -252,6 +252,7 @@ zh-CN:
       需要 <a href="/account/sign_in" class="btn btn-primary">登录</a> 后方可回复,
       如果你还没有账号请 <a href="/account/sign_up">注册新账号</a>
     newbi_info_html: 当前设置新手用户不能在 22:00 ~ 9:00 发帖。
+    mute_info_html: 你已被禁言，无法回复。
     closed_info_html: 此话题已于 %{closed_at} 关闭讨论，不再接受任何回复。
     topic_pin_successfully: 话题置顶成功。
     topic_unpin_successfully: 话题取消置顶成功。

@@ -88,6 +88,8 @@ class TopicsController < ApplicationController
       WebhookJob.perform_later("topic_create", {
         topic_id: @topic.id,
         user_id: @topic.user_id,
+        user_login: @topic.user.login,
+        user_name: @topic.user.name,
         title: @topic.title,
         body: @topic.body
       })
@@ -118,6 +120,8 @@ class TopicsController < ApplicationController
       WebhookJob.perform_later("topic_update", {
         topic_id: @topic.id,
         user_id: @topic.user_id,
+        user_login: @topic.user.login,
+        user_name: @topic.user.name,
         title: @topic.title,
         body: @topic.body
       })

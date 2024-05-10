@@ -3,7 +3,7 @@
 module Api
   module V3
     class UsersController < Api::V3::ApplicationController
-      before_action :doorkeeper_authorize!, only: %i[me follow unfollow block unblock blocked]
+      before_action :doorkeeper_authorize!, only: %i[me follow unfollow block unblock blocked mute update_info]
       before_action :set_user, except: %i[index me]
 
       # Get Hot User List
@@ -173,6 +173,29 @@ module Api
       def unblock
         current_user.unblock_user(@user.id)
         render json: {ok: 1}
+      end
+
+      # Mute user
+      #
+      # POST /api/v3/users/:id/mute
+      def mute
+        raise AccessDenied.new("You do not have permission to do this.") unless current_user.admin?
+        return render json: {ok: 1} if @user.state == -1
+        @user.update(state: 2)
+        render json: {ok: 1}
+      end
+
+      # Modify user login \ name \ tagline
+      #
+      # POST /api/v3/users/:id/update_info
+      def update_info
+        raise AccessDenied.new("You do not have permission to do this.") unless current_user.admin?
+        @user.update(login: params[:login], name: params[:name], tagline: params[:tagline])
+        if @user.valid?
+          render json: {ok: 1}
+        else
+          render json: {ok: 0, error: @user.errors.full_messages.join(",")}
+        end
       end
 
       private
