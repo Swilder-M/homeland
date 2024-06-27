@@ -38,7 +38,6 @@ class Setting < RailsSettings::Base
     custom_head_html
     navbar_html
     footer_html
-    site_index_html
     topic_index_sidebar_html
     after_topic_html
     before_topic_html
@@ -121,7 +120,6 @@ class Setting < RailsSettings::Base
     field :custom_head_html, default: ""
     field :navbar_html, default: ""
     field :footer_html, default: ""
-    field :site_index_html, default: ""
     field :topic_index_sidebar_html, default: ""
     field :before_topic_html, default: ""
     field :after_topic_html, default: ""
