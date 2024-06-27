@@ -26,12 +26,6 @@ window.SocialShareButton = {
     const via = encodeURIComponent($parent.getAttribute("data-via") || '');
     const desc = encodeURIComponent($parent.getAttribute("data-desc") || ' ');
 
-    // tracking click events if google analytics enabled
-    const ga = window[window['GoogleAnalyticsObject'] || 'ga'];
-    if (typeof ga === 'function') {
-      ga('send', 'event', 'Social Share Button', 'click', site);
-    }
-
     if (url.length === 0) {
       url = encodeURIComponent(location.href);
     }

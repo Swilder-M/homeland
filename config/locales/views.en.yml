@@ -146,7 +146,6 @@ en:
     default_locale: User default language [zh-CN, en]
     auto_locale: Enable auto switch language by user browser setting. [true | false]
     custom_head_html: Customize HTML in head.
-    site_index_html: Customize HTML in site index page.
     navbar_brand_html: Customize HTML in navbar logo region.
     navbar_html: Customize HTML in navbar.
     topic_index_sidebar_html: Customize HTML in topic index page.

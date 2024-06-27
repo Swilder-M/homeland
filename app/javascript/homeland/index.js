@@ -28,7 +28,6 @@ require("dropzone");
 require("jquery.fluidbox.min");
 require("jquery.caret");
 require("jquery.atwho.min");
-require("google_analytics");
 require("jquery.infinitescroll.min");
 require("jquery.mobile-events");
 require("vendor/social-share-button");
