@@ -5,7 +5,7 @@ RUN apk update && apk add curl gcc g++ gnupg make
 RUN apk add build-base ca-certificates socat git htop tzdata \
 imagemagick nginx nginx-mod-http-image-filter nginx-mod-http-geoip  \
 ruby-dev openssl libpq-dev libxml2-dev libxslt-dev nodejs-current npm yarn \
-cmake clang clang-dev libc6
+cmake clang clang-dev gcompat
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
