@@ -71,7 +71,7 @@ gem "second_level_cache"
 gem "rails-settings-cached"
 
 # HTML Pipeline
-gem "nokogiri", force_ruby_platform=true
+gem 'nokogiri', force_ruby_platform: true
 gem "autocorrect-rb"
 gem "html-pipeline", "~> 2.14"
 gem "html-pipeline-auto-correct"
