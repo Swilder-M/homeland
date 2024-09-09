@@ -85,6 +85,12 @@ GEM
     ast (2.4.2)
     autocorrect-rb (2.9.1)
       rb_sys (>= 0.9.54)
+    autocorrect-rb (2.9.1-aarch64-linux)
+      rb_sys (>= 0.9.54)
+    autocorrect-rb (2.9.1-arm64-darwin)
+      rb_sys (>= 0.9.54)
+    autocorrect-rb (2.9.1-x86_64-linux)
+      rb_sys (>= 0.9.54)
     base64 (0.2.0)
     bcrypt (3.1.20)
     benchmark-ips (2.13.0)
@@ -279,6 +285,12 @@ GEM
     nokogiri (1.16.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    nokogiri (1.16.4-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.4-x86_64-linux)
+      racc (~> 1.4)
     notifications (1.1.0)
       kaminari (>= 0.15)
       rails (>= 5.2)
@@ -453,6 +465,15 @@ GEM
     rucaptcha (3.2.3)
       railties (>= 3.2)
       rb_sys (>= 0.9.86)
+    rucaptcha (3.2.3-aarch64-linux)
+      railties (>= 3.2)
+      rb_sys (>= 0.9.86)
+    rucaptcha (3.2.3-arm64-darwin)
+      railties (>= 3.2)
+      rb_sys (>= 0.9.86)
+    rucaptcha (3.2.3-x86_64-linux)
+      railties (>= 3.2)
+      rb_sys (>= 0.9.86)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -537,7 +558,10 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
+  aarch64-linux
+  arm64-darwin
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   action-store
