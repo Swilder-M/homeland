@@ -47,7 +47,7 @@ gem "mini_magick", require: false
 
 # Captcha
 gem "recaptcha"
-gem "rucaptcha"
+gem "rucaptcha", force_ruby_platform: true
 
 # Notification
 gem "notifications"
