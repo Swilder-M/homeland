@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_154915) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_10_095716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_154915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["countable_type", "countable_id", "key"], name: "index_counters_on_countable_type_and_countable_id_and_key", unique: true
-    t.index ["countable_type", "countable_id"], name: "index_counters_on_countable"
     t.index ["countable_type", "key", "value"], name: "index_counters_on_countable_type_and_key_and_value"
   end
 
