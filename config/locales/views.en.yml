@@ -149,6 +149,7 @@ en:
     navbar_brand_html: Customize HTML in navbar logo region.
     navbar_html: Customize HTML in navbar.
     topic_index_sidebar_html: Customize HTML in topic index page.
+    topic_detail_sidebar_html: Customize HTML in topic detail page.
     before_topic_html: Customize HTML before the topic content.
     after_topic_html: Customize HTML after the topic content
     footer_html: Customize HTML in page footer.

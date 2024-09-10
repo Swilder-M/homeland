@@ -39,6 +39,7 @@ class Setting < RailsSettings::Base
     navbar_html
     footer_html
     topic_index_sidebar_html
+    topic_detail_sidebar_html
     after_topic_html
     before_topic_html
     node_ids_hide_in_topics_index
@@ -121,6 +122,7 @@ class Setting < RailsSettings::Base
     field :navbar_html, default: ""
     field :footer_html, default: ""
     field :topic_index_sidebar_html, default: ""
+    field :topic_detail_sidebar_html, default: ""
     field :before_topic_html, default: ""
     field :after_topic_html, default: ""
     field :ban_reasons, default: "标题或正文描述不清楚", type: :array, separator: /\n+/
