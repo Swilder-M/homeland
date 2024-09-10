@@ -14,7 +14,7 @@ RUN mkdir -p /home/app &&\
 RUN gem install bundler
 ADD Gemfile Gemfile.lock package.json yarn.lock /home/app/homeland/
 # Do not enable bundle deployment, use globalize mode, Puma tmp_restart need it.
-RUN bundle install && yarn && \
+RUN bundle install --jobs 4 --retry 3 && yarn && \
   find /usr/local/bundle -name tmp -type d -exec rm -rf {} + && \
   find /usr/local/bundle -name "*.gem" -type f -exec rm -rf {} + && \
   find /usr/local/lib/ruby -name "*.gem" -type f -exec rm -rf {} + && \
